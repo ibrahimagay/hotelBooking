@@ -1,0 +1,419 @@
+$white: #ffffff;
+$black: #000000;
+$blue: #073763;
+$grey:#adadad;
+$greyDark:#333333;
+
+*{margin:0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; outline: none;}
+body{ color:$greyDark; font-size: 16px; font-family: sans-serif;}
+.container{width:1080px; margin: 0 auto; display: flex;}
+
+header{width:100%; height: 80px; background-color:$blue; display: flex; align-items: center; position: relative;
+    .noLink{color: $white; padding:0 15px; position: absolute; top:30px; left:15px;
+        &:nth-child(2){left:80px;}
+        &:nth-child(3){left:145px;}
+        &:nth-child(4){left:210px;}
+        &.active{color:yellow;}
+    }
+    .left{width:50%;
+        .logo{font-size:32px; font-weight: bold; color:$white;}
+        .logoSubDesc{font-size:14px;  color:$white;}
+    }
+    .right{width:50%; display: flex; justify-content: flex-end;}
+}
+section.content{width: 100%; padding:40px 0;
+    .container{flex-direction: column;}
+    
+    //Partner
+    .navProgress{width:100%; background-color: #f2f2f2; border-radius: 6px; margin:0 0 45px 0;
+        ul{width:100%; padding: 25px 15px;  display: flex; justify-content: center;
+            li{width:160px; display: flex; flex-direction: column; align-items: center; margin:0 160px 0 0;
+                &:last-child{margin:0;
+                    .iconBox{
+                        &:after{display: none;}
+                    }
+                }
+                &.active{
+                    .iconBox{border-color: $greyDark;
+                        i{
+                            &.date_icon{background-image: url('img/date_active.png'); }
+                            &.room_icon{background-image: url('img/room_active.png'); }
+                            &.credit_icon{background-image: url('img/credit_active.png'); }
+                        }
+                    }
+                    .iconTitle{color:$black;}
+                }
+                .iconBox{width:80px; height: 80px; background: $white; border:1px solid #d6d6d6; border-radius: 50%; margin:0 0 15px 0; display: flex; align-items: center; justify-content: center;position: relative; 
+                    i{width:30px; height: 30px; background-position: center center; background-repeat: no-repeat; display: block;
+                        &.date_icon{background-image: url('img/date.png'); }
+                        &.room_icon{background-image: url('img/room.png'); }
+                        &.credit_icon{background-image: url('img/credit.png'); }
+                    }
+                    &:after{content:''; width: 240px; height: 2px; position: absolute; left:80px; top:40px; background-color: #dfdfdf; }
+                }
+                .iconTitle{width:100%; color:$grey; font-weight: bold; text-align: center;}
+            }
+        }
+    }
+    .stepNavBox{width:100%;  min-height: 100px; background-color: #f2f2f2; border-radius: 6px; padding:0 30px; display: flex;
+        .left{width: 50%; display: flex; align-items: center;}
+        .right{width: 50%; display: flex; justify-content: flex-end; align-items: center;}
+    }
+
+    //Step0
+    .reservationBox{width:100%; border:1px solid #f2f2f2; border-radius: 6px; margin:0 0 45px 0; padding: 40px 30px; box-shadow: 0 15px 30px rgba(0, 0, 0, .07);
+        .top{width:100%; margin:0 0 30px 0;
+            select{width:100%; height: 40px; padding: 0 15px; border:none; border-radius: 3px; background-color: #f2f2f2;
+                option{
+                    &:first-child{display: none;}
+                }
+            }
+        }
+        .bottom{width:100%;
+            ul{width:100%; display: flex; border-radius: 6px; overflow: hidden; 
+                li{width:25%; padding:30px 30px; border-right:1px solid #dfdfdf; background-color: #f2f2f2; position: relative;
+                    &:first-child{width:50%;}
+                    &:last-child{border:none;}
+                    .title{width:100%; margin:0 0 10px 0; font-size: 16px; color: $greyDark; font-weight: bold;}
+                    .entryReleaseDate {width: 100%;}
+                    input{width:100%; border:none; height: 30px; padding:0 10px; border-radius: 3px;}
+                    select{width:100%; height: 30px; padding: 0 10px; border:none; border-radius: 3px; color:#757575;
+                        option{color:$greyDark;}
+                    }
+                    .message{position: absolute; font-size:12px; color: red; bottom:7.5px; display: none;
+                        &.active{display: block;}
+                    }
+                }
+            }
+        }
+    }
+
+    //Step1
+    .reservationInformation{width:100%;  border:1px solid #f2f2f2; border-radius: 6px; margin:0 0 45px 0; padding: 20px 30px;  background-color: #f2f2f2;
+        .reservationTitle{width: 100%; margin:0 0 15px 0; font-size:20px; font-weight: bold;
+            span{font-size:14px; font-weight:normal;}
+        }
+        .reservationHistory{width:100%; font-size:14px;
+            span{font-weight: bold;}
+        }
+    }
+    .hotelBox{width:100%; margin:0 0 15px 0;display: flex; flex-direction: column;
+        .hotelTitle{width:100%; margin:0 0 15px 0; padding:0 0 15px 0; border-bottom:1px solid #f2f2f2; font-weight:bold; font-size:18px;}
+        .row{margin:0 -15px;}
+        ul{width:100%; display: flex;margin:0 0 20px 0;
+            li{width:33.33%; margin:0 15px;  border:1px solid #f2f2f2; border-radius: 6px; padding:20px 30px; display: flex; flex-direction: column; cursor: pointer; transition: border-color .4s ease-in-out;
+                &:hover{border-color: #8dd394;}
+                &.active{border-color: #8dd394;}
+                .hotelName{width:100%; font-weight: bold; margin:0 0 15px 0;}
+                .bgImage{width:100%; height: 140px; background-repeat: no-repeat; background-size: cover; margin:0 0 10px 0;}
+                .hotelDesc{width:100%; display: flex;
+                    .leftText{width:50%; display: flex; flex-direction: column;
+                        span{font-size:12px; margin:0 0 2.5px 0;
+                            &:last-child{margin: 0;}
+                        }
+                    }
+                    .rightText{width:50%; display: flex; justify-content: flex-end;
+                        .price{font-size: 18px; font-weight: bold;}
+                    }
+                }
+            }
+        }
+    }
+
+    //Step2
+    .paymentBox{width:100%; margin:0 0 45px 0; display: flex;
+        .credit{width:calc(60% - 30px); margin:0 30px 0 0; background-color: #f2f2f2; border-radius: 6px; padding:20px 20px;
+            .creditCard{width:100%; margin:0 0 30px 0; position: relative;
+                &.active{
+                    .front{z-index:0; transform: rotateY(180deg);}
+                    .back{z-index: 1; transform: rotateY(0deg);}
+                }
+                .front{width:100%; height: 260px;  background-color: #0061A8;border-radius: 12px; overflow: hidden; position: absolute; z-index: 2; padding:30px 30px; transform-style: preserve-3d;     transition: all 0.5s ease-out 0s;
+                    .top{width:100%; display: flex; justify-content: space-between; margin:0 0 45px 0; min-height: 50px;
+                        .creditCardText{font-size:22px; font-weight: bold; color: $white;display: flex;align-items: center;
+                            i{font-weight: normal;}
+                        }
+                        .creditCardLogo{width:50px; height: 50px; background-image: url('img/visa.png'); background-repeat: no-repeat; background-size: contain;}
+                    }
+                    .creditCardNumber{width:100%; margin:0 0 20px 0; min-height: 37px;
+                        input{width:100%; border:none; background:none;  font-size:32px; color:$white; letter-spacing:6px;
+                            &::-webkit-input-placeholder{color:$white;}
+                            &::-moz-placeholder{color:$white;}
+                            &:-ms-input-placeholder{color:$white;}
+                            &::-ms-input-placeholder{color:$white;}
+                            &::placeholder{color:$white;}
+                        }
+                    }
+                    .creditCardName{width:100%; margin:0 0 5px 0; min-height: 23px;
+                        input{width:100%; border:none; background:none; font-size:20px; color:$white; 
+                            &::-webkit-input-placeholder{color:$white;} 
+                            &::-moz-placeholder{color:$white;} 
+                            &:-ms-input-placeholder{color:$white;} 
+                            &::-ms-input-placeholder{color:$white;} 
+                            &::placeholder{color:$white;}
+                        }
+                    }
+                    .bottom{width:100%; display: flex;  min-height: 16px;
+                        input{width:40px; border:none; background:none;color:$white; font-size:14px;
+                            &:first-child{width: 20px;}
+                            &::-webkit-input-placeholder{color:$white;}
+                            &::-moz-placeholder{color:$white;}
+                            &:-ms-input-placeholder{color:$white;}
+                            &::-ms-input-placeholder{color:$white;}
+                            &::placeholder{color:$white;}
+                        }
+                        span{ color:$white; font-size:14px; margin:0 2.5px;}
+                    }
+                }
+                .back{width:100%; height: 260px;  background-color: #0061A8;border-radius: 12px; overflow: hidden; position: relative; z-index: 0; padding:30px 0;transform-style: preserve-3d; transform: rotateY( -180deg); transition: all 0.5s ease-out 0s;
+                    .top{width:100%; background: #dfdfdf; height: 50px; margin:0 0 45px 0;}
+                    .center{width:100%; margin:0 0 30px 0; padding:0 30px; min-height: 18px;
+                        input{width:100%; border:none; background:none; color:$white; text-align: right;
+                            &::-webkit-input-placeholder{color:$white;}
+                            &::-moz-placeholder{color:$white;}
+                            &:-ms-input-placeholder{color:$white;}
+                            &::-ms-input-placeholder{color:$white;}
+                            &::placeholder{color:$white;}
+                        }
+                    }
+                    .bottom{width:100%; display: flex; justify-content: flex-end;  min-height: 50px; padding:0 30px;
+                        .creditCardLogo{width:50px; height: 50px; background-image: url('img/visa.png'); background-repeat: no-repeat; background-size: contain;}
+                    }
+                }
+            }
+            .formTitle{width:100%; margin:0 0 27px 0; padding:0 0 18px 0; border-bottom:1px solid #dfdfdf; font-weight:bold; font-size:18px;}
+            ul{width:100%; display: flex; flex-direction: column;
+                li{width:100%; margin:0 0 15px 0; display: flex; flex-direction: column;
+                    &.flexRow{flex-direction: row; margin:0 0 0 0;}
+                    .title{width:100%; margin:0 0 5px 0; font-size:14px;}
+                    input{width: 100%; height: 50px; border:none; padding: 0 5px;}
+                    .box{width:calc(100% - 180px); margin:0 30px 0 0;
+                        &.boxCvv{width:150px; margin:0;}
+                        select{width:calc(50% - 7.5px); height: 50px; border:none; margin:0 15px 0 0; padding: 0 5px; color:#757575;
+                            option{color:$greyDark;
+                                &:first-child{display: none;}
+                            }
+                            &:last-child{margin:0;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Step2-3 Partner
+    .paymentSummary{width: 40%; background-color: #f2f2f2; border-radius: 6px;  padding:20px 20px; display: flex; flex-direction: column;
+        &.w100{width:100%;}
+        .reservationTitle{width: 100%; margin:0 0 15px 0; font-size:20px; font-weight: bold;
+            span{font-size:14px; font-weight:normal;}
+        }
+        .reservationSummary{width:100%; display: flex; flex-wrap: wrap;
+            li{width:calc(50% - 5px); margin:0 10px 10px 0; border-radius:6px; background:$white; padding:15px 15px; text-align: center; display: flex; flex-direction: column;
+                &:nth-child(2n){margin:0 0 15px 0;}
+                strong{margin:0 0 5px 0;}
+            }
+        }
+        .couponBox{width: 100%;  border-radius:6px; background:$white; padding:15px 15px; display: flex; margin:0 0 10px 0;
+            &.none{display: none;}
+            .couponCode{width: calc(100% - 165px); margin:0 15px 0 0; height: 30px; padding: 0 5px; background-color: #f2f2f2; border:none; color: $greyDark; border-radius: 3px;
+                &::-webkit-input-placeholder{color:$greyDark;}
+                &::-moz-placeholder{color:$greyDark;}
+                &:-ms-input-placeholder{color:$greyDark;}
+                &::-ms-input-placeholder{color:$greyDark;}
+                &::placeholder{color:$greyDark;}
+            }
+            .linkBox{width:150px;
+                a{width:100%; font-size:14px; padding:5px 30px;}
+            }
+        }
+        .priceBox{width: 100%;  border-radius:6px; background:$white; padding:20px 0 15px;
+            .generalList{width:100%; margin:0 0 10px 0; display: flex; justify-content:space-between; padding:0 15px;
+                label{font-weight: normal;}
+            }
+            .totalPrice{width:100%; margin:20px 0 0 0; padding: 20px 15px 0; border-top:1px solid #dfdfdf; display: flex; flex-direction: column;
+                span{width:100%; text-align: center; margin:0 0 5px 0; font-weight: bold;}
+                strong{width:100%; text-align: center; font-size:32px;}
+            }
+        }
+    }
+
+    //Step3
+    .paymentSucces{width: 100%; 
+        .paymentMessage{width:100%; margin:0 0 30px 0; border:1px solid #f2f2f2; border-radius: 6px;  padding:30px 250px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            i{width:60px; height: 60px; margin:0 0 15px 0; display: block; background-image: url('img/date_succes.png'); background-repeat: no-repeat;
+                &.cancel_icon{background-image: url('img/cancel.png');}
+            }
+            .succesTitle{width:100%; font-weight: bold; margin:0 0 20px 0; text-align: center; font-size: 20px; }
+            .succesDesc{font-size:14px; margin: 0 0 30px 0; text-align: center;}
+            .linkBox{
+                a{margin:0 5px; padding:12px 20px; font-size: 14px;}
+            }
+        }
+    }
+}
+.linkBox{width: auto;display: flex; ;
+    a{ padding:15px 30px; display: flex; justify-content: center; align-items: center; overflow: hidden; border-radius: 3px;background: #eeeeee; color: $blue; font-size:16px; position: relative; font-weight: 500;transition:all .3s ease-in-out;
+        &.blueButton{background: $blue; color:$white;}
+        &:after{position: absolute; transition: 0.3s; content: ""; width: 0;left: -10%; bottom: -1px; height: 120%; background:$greyDark; transform: skewX(15deg); z-index:1;}
+        &:hover{ color: $white;
+            &:after{left: -10%;top:-10%; width: 120%;}
+        }
+        span{position: relative; z-index: 2; display: flex;}
+    }
+}
+.mx-calendar{width:223px !important;}
+
+@media screen and (max-width: 1199px){
+    .container{width:100%; padding: 0 30px;}
+    section.content{
+        .navProgress {
+            ul {
+                li{margin:0 40px 0 0;
+                    .iconBox{
+                        &::after{width: 120px;}
+                    }
+                }
+            }
+        }
+        .reservationBox {
+            .bottom {
+                ul{flex-direction: column;
+                    li{width:100%; border:none; border-bottom:1px solid #dfdfdf;
+                        &:first-child{width:100%;}
+                    }
+                }
+            }
+        }
+        .hotelBox {
+            ul {
+                li{
+                    .bgImage{height: 115px;;}
+                }
+            }
+        }
+        .paymentBox {
+            .credit{width:calc(55% - 30px);
+                .creditCard {
+                    .front {
+                        .creditCardNumber {
+                            input{letter-spacing: 3.5px;}
+                        }
+                    }
+                }
+            }
+            .paymentSummary{width:45%;}
+        }
+        .paymentSucces{
+            .paymentMessage{padding:30px 30px;}
+        }
+    }
+    .mx-calendar{width:calc(50vw - 90px) !important;} 
+}
+@media screen and (max-width: 991px){
+    section.content{
+        .hotelBox {
+            ul {
+                li{padding:15px 15px;
+                    .bgImage{height: 93px;}
+                }
+            }
+        }
+        .paymentBox {flex-direction: column-reverse;
+            .credit{width:100%; margin:15px 0 0 0;
+                .creditCard {
+                    .front {
+                        .creditCardNumber {
+                            input{letter-spacing: 3.5px;}
+                        }
+                    }
+                }
+            }
+            .paymentSummary{width:100%;}
+        }
+    }
+}
+@media screen and (max-width: 767px){
+    .container{padding: 0 15px;}
+    header {
+        .left{
+            .logo{font-size:24px;}
+            .logoSubDesc{font-size:12px;}
+        }
+    }
+    section.content{ padding:20px 0;
+        .navProgress { margin:0 0 30px 0;
+            ul {padding:15px 5px;
+                li{margin:0 0 0 0; width: 115px;
+                    .iconBox{width:50px; height: 50px;
+                        i{width:15px; height: 15px; background-size: contain;}
+                        &::after{width:65px; left:50px; top:25px;}
+                    }
+                    .iconTitle{font-size:12px;}
+                }
+            }
+        }
+        .reservationBox { padding:25px 15px; margin:0 0 30px 0;
+            .bottom {
+                ul{
+                    li{padding:15px 15px;
+                        .message{font-size:10px; bottom:3.5px;}
+                    }
+                }
+            }
+        }
+        .reservationInformation{padding:15px 15px;}
+        .hotelBox {margin:0;
+            .row{margin:0;}
+            ul {flex-direction: column; margin:0 0 10px 0;
+                li{padding:15px 15px; width: 100%; margin:0 0 15px 0;
+                    .bgImage{height: 158px;}
+                }
+            }
+        }
+        .paymentBox { margin:0 0 30px 0;
+            .credit{padding:15px 15px;
+                .creditCard {
+                    .front {height: 205px; padding:15px;
+                        .top{margin:0 0 30px;}
+                        .creditCardNumber {min-height: 31px;
+                            input{letter-spacing: 1px; font-size:26px;}
+                        }
+                    }
+                    .back{height: 205px; padding:15px 0;
+                        .top{margin:0 0 30px 0;}
+                        .center{padding:0 15px;}
+                        .bottom{padding:0 15px;}
+                    }
+                }
+                ul{
+                    li{
+                        &.flexRow{flex-direction: column;}
+                        .box{width:100%; margin:0 0 15px 0;
+                            &.boxCvv{width:100%;}
+                        }
+                    }
+                }
+            }
+        }
+        .paymentSummary{padding:15px;
+            .reservationSummary{flex-direction: column;
+                li{width:100%; margin:0 0 10px 0;}
+            }
+        }
+        .paymentSucces{
+            .paymentMessage{padding:15px 15px;
+                .linkBox{flex-direction: column;
+                    a{margin:0 0 7.5px 0;
+                        &:last-child{margin:0;}
+                    }
+                }
+            }
+        }
+        .stepNavBox{padding:0 15px; min-height: 60px;}
+    }
+    .mx-datepicker-main{left:45px !important;}
+    .mx-calendar{width:calc(100vw - 90px) !important;}
+    .linkBox {
+        a{padding:10px 10px; font-size:12px;}
+    }
+}
